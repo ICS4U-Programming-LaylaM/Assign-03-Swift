@@ -59,12 +59,21 @@ do {
         // Put each string in the array in the depth function
         // and insert it to the depthArray
         for string in stringArray {
-            depthArray = depth(number: Int(string) ?? 0, depthInt: baseDepth)
-            // Create string that displays the depth of
-            // each number and their palindrome
-            strings = "The number \(stringArray[counter]) is " +
-            "a depth \(depthArray[0]) palindrome. " +
-            "Palindrome: \(depthArray[1])"
+            let stringInt = Int(string) ?? -23847125624345235
+
+            // Handles errors for non integers and negative integers
+            if stringInt == -23847125624345235 {
+                strings = "Error, is not an integer."
+            } else if stringInt < 0 {
+                strings = "Cannot not be negative."
+            } else {
+                depthArray = depth(number: Int(string) ?? 0, depthInt: baseDepth)
+                // Create string that displays the depth of
+                // each number and their palindrome
+                strings = "The number \(stringArray[counter]) is " +
+                "a depth \(depthArray[0]) palindrome. " +
+                "Palindrome: \(depthArray[1])"
+            }
 
             // Add to a new array
             depthString.append(strings)
